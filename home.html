@@ -24,12 +24,16 @@
         var str = dados.bid;
         var monedita = str.replace(',' , '.');
         var moneda = parseFloat(monedita);
+        dolar = parseFloat(moneda.toFixed(2));
         
-        alert ('Valor do dolar atual: ' + moneda);
     
-        converte = real * moneda;
+        converte = real / moneda;
         
-        alert ('Valor convertido: ' + converte);
+        var conversao = parseFloat(converte.toFixed(2));
+        
+        document.getElementById("dol").innerHTML = "Valor atual do dólar: " + moneda;
+        document.getElementById("convertido").innerHTML = "valor em Dólares: " + conversao;
+        
         
         
     }
@@ -43,13 +47,14 @@
 
     
 <body>
-    
+<h1>Computação distribuida: Conversor Reis - Dólares</h1>   
 <div id="text">
 <p>Insira o valor em real</p>
 <input type="number" id="moeda"> <button onclick="teste()">Converter para dólar</button>
+<div id="dol"></div>   
+<div id="convertido"></div>
 
-
-    
+<p>Rodrigo Nascimento --- Tia: 31711030</p>
 </div>    
 
 </body>
