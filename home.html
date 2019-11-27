@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+    
+    
+<script>
+    
+    function teste(){
+        var http = new XMLHttpRequest();
+        http.open("GET", "http://economia.awesomeapi.com.br/all/usd", false);
+        http.send()
+        //alert(http.responseText);
+        
+        var real;
+        
+        real = document.getElementById("moeda").value;
+        var converte;
+        var dolar;
+        dolar = http.responseText;
+        var dados = JSON.parse(dolar).USD;
+        var str = dados.bid;
+        var monedita = str.replace(',' , '.');
+        var moneda = parseFloat(monedita);
+        
+        alert ('Valor do dolar atual: ' + moneda);
+    
+        converte = real * moneda;
+        
+        alert ('Valor convertido: ' + converte);
+        
+        
+    }
+    
+    
+    
+</script>   
+    
+</head>
+    
+
+    
+<body>
+    
+<div id="text">
+<p>Insira o valor em real</p>
+<input type="number" id="moeda"> <button onclick="teste()">Converter para dólar</button>
+
+
+    
+</div>    
+
+</body>
+
+
+
+
+</html>
